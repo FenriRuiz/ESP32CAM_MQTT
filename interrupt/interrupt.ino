@@ -76,6 +76,7 @@ void take_picture() {
   }
   Serial.println("CLIC");
   esp_camera_fb_return(fb);
+}
 
 void connectToWifi() {
   Serial.println("Conectandose al punto de acceso WiFi...");
@@ -89,10 +90,8 @@ void connectToWifi() {
 }
 void connectToMqtt() {
   client.setServer(MQTT_SERVER, MQTT_PORT);
-  client.setCallback(callback);
   
   Serial.println("Conectando con el servidor MQTT");
-  client.setCallback(callback);
   
   if(client.connect(MQTT_CLIENT)){
     Serial.println("Conexión establecida con el servidor!");
